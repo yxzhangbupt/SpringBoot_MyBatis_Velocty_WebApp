@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace命名空间特殊作用： 如果使用mapper动态代理方法，这里就需要配置mapper接口地址 -->
+
+<mapper namespace="com.qiyi.video.mapper.UserMapper">
+
+<select id="findUserById" parameterType="int" resultType="com.qiyi.video.domain.User">
+	SELECT * from `user` where id = #{id}
+</select>
+
+<select id="findUserList" parameterType="string" resultType="com.qiyi.video.domain.User">
+	SELECT * from user WHERE name like '%${value}%'
+</select>
+
+<insert id="insertUser" parameterType="com.qiyi.video.domain.User">
+
+<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+	select LAST_INSERT_ID()
+</selectKey>
+	INSERT INTO `user`(NAME,email) VALUES(#{name},#{email})
+</insert>
+
+<delete id="deleteById" parameterType="int">
+	DELETE from `user` where id = #{id}
+</delete>
+
+<update id="updateUser" parameterType="com.qiyi.video.domain.User">
+	UPDATE user SET name = #{name},email = #{email} WHERE id = #{id}
+</update>
+
+</mapper>
