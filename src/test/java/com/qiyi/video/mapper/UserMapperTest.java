@@ -32,43 +32,66 @@ public class UserMapperTest {
 	@Test
 	public void testFindUserById() throws Exception {
 		SqlSession session = sqlSessionFactory.openSession();
-		UserMapper mapper = session.getMapper(UserMapper.class);
-		User user = mapper.findUserById(1);
-		System.out.println(user);
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			User user = mapper.findUserById(1);
+			System.out.println(user);
+		} finally{
+			session.close();
+		}
 	}
 
 	@Test
 	public void testFindUserList() throws Exception {
 		SqlSession session = sqlSessionFactory.openSession();
-		UserMapper mapper = session.getMapper(UserMapper.class);
-		List<User> userList = mapper.findUserList("");
-		System.out.println(userList);
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			List<User> userList = mapper.findUserList("");
+			System.out.println(userList);
+		} finally{
+			session.close();
+		}
 	}
 
 	@Test
 	public void testInsertUser() throws Exception{
 		SqlSession session = sqlSessionFactory.openSession();
-		UserMapper mapper = session.getMapper(UserMapper.class);
-		User user = new User();
-		user.setName("小黄");
-		user.setEmail("xiaohaung@qiyi.com");
-		mapper.insertUser(user);
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			User user = new User();
+			user.setName("小黄");
+			user.setEmail("xiaohaung@qiyi.com");
+			mapper.insertUser(user);
+			session.commit();
+		} finally{
+			session.close();
+		}
 	}
 
 	@Test
 	public void testDeleteById() throws Exception{
 		SqlSession session = sqlSessionFactory.openSession();
-		UserMapper mapper = session.getMapper(UserMapper.class);
-		mapper.deleteById(14);
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			mapper.deleteById(14);
+			session.commit();
+		} finally{
+			session.close();
+		}
 	}
 
 	@Test
 	public void testUpdateUser() throws Exception {
 		SqlSession session = sqlSessionFactory.openSession();
-		UserMapper mapper = session.getMapper(UserMapper.class);
-		User user = mapper.findUserById(9);
-		user.setName("小李子");
-		mapper.updateUser(user);
+		try {
+			UserMapper mapper = session.getMapper(UserMapper.class);
+			User user = mapper.findUserById(9);
+			user.setName("小李子");
+			mapper.updateUser(user);
+			session.commit();
+		} finally{
+			session.close();
+		}
 	}
 
 }

@@ -6,17 +6,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.qiyi.video.mapper.UserMapper">
 
-<select id="findUserById" parameterType="int" resultType="com.qiyi.video.domain.User">
+<select id="findUserById" parameterType="int" resultType="User">
 	SELECT * from `user` where id = #{id}
 </select>
 
-<select id="findUserList" parameterType="string" resultType="com.qiyi.video.domain.User">
+<select id="findUserList" parameterType="string" resultType="User">
 	SELECT * from user WHERE name like '%${value}%'
 </select>
 
-<insert id="insertUser" parameterType="com.qiyi.video.domain.User">
+<insert id="insertUser" parameterType="User">
 
-<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+<selectKey keyProperty="id" order="AFTER" resultType="int">
 	select LAST_INSERT_ID()
 </selectKey>
 	INSERT INTO `user`(NAME,email) VALUES(#{name},#{email})
@@ -26,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	DELETE from `user` where id = #{id}
 </delete>
 
-<update id="updateUser" parameterType="com.qiyi.video.domain.User">
+<update id="updateUser" parameterType="User">
 	UPDATE user SET name = #{name},email = #{email} WHERE id = #{id}
 </update>
 

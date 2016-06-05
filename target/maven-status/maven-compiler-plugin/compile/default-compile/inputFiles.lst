@@ -1,2 +1,9 @@
-C:\Users\Administrator\Documents\demo\src\main\java\com\qiyi\video\DemoApplication.java
-C:\Users\Administrator\Documents\demo\src\main\java\com\qiyi\video\web\HelloController.java
+C:\Users\YX\Documents\SpringBoot_MyBatis_Velocty_WebApp\src\main\java\com\qiyi\video\web\UserAction.java
+C:\Users\YX\Documents\SpringBoot_MyBatis_Velocty_WebApp\src\main\java\com\qiyi\video\domain\User.java
+C:\Users\YX\Documents\SpringBoot_MyBatis_Velocty_WebApp\src\main\java\com\qiyi\video\web\HelloController.java
+C:\Users\YX\Documents\SpringBoot_MyBatis_Velocty_WebApp\src\main\java\com\qiyi\video\dao\UserDao.java
+C:\Users\YX\Documents\SpringBoot_MyBatis_Velocty_WebApp\src\main\java\com\qiyi\video\service\UserService.java
+C:\Users\YX\Documents\SpringBoot_MyBatis_Velocty_WebApp\src\main\java\com\qiyi\video\mapper\UserMapper.java
+C:\Users\YX\Documents\SpringBoot_MyBatis_Velocty_WebApp\src\main\java\com\qiyi\video\dao\impl\UserDaoImpl.java
+C:\Users\YX\Documents\SpringBoot_MyBatis_Velocty_WebApp\src\main\java\com\qiyi\video\service\impl\UserServiceImpl.java
+C:\Users\YX\Documents\SpringBoot_MyBatis_Velocty_WebApp\src\main\java\com\qiyi\video\DemoApplication.java

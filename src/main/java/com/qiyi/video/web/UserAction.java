@@ -23,37 +23,42 @@ public class UserAction {
 	@Autowired
 	private UserService userService;
 	
-	ConcurrentHashMap<Integer,User> users = new ConcurrentHashMap<Integer,User>();
+//	ConcurrentHashMap<Integer,User> users = new ConcurrentHashMap<Integer,User>();
 
 	@RequestMapping(value="/",method=RequestMethod.GET)
-	public  Collection<User> getUserList(){
+	public  Collection<User> getUserList() throws Exception{
+//		return users.values();
 		return userService.getUserList();
 	}
 	
 	@RequestMapping(value="/",method=RequestMethod.POST)
-	public String addUser(@ModelAttribute User user){
-		users.put(user.getId(), user);
-		return "success";
+	public String addUser(@ModelAttribute User user) throws Exception{
+//		users.put(user.getId(), user);
+		return userService.addUser(user);
+//		return "success";
 	}
 	
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)
-	public User getUser(@PathVariable long id){
-		return users.get(id);
+	public User getUser(@PathVariable int id) throws Exception{
+//		return users.get(id);
+		return userService.getUser(id);
 	}
 	
-	@RequestMapping(value="/{id}",method=RequestMethod.PUT)
-	public String updateUser(@PathVariable int id,@ModelAttribute User user){
-		User oldUser = users.get(id);
+	@RequestMapping(value="/{id}",method=RequestMethod.POST)
+	public String updateUser(@PathVariable int id,@ModelAttribute User user) throws Exception{
+		User oldUser = getUser(id); 
 		if(oldUser==null)
-			addUser(user);
+			return addUser(user);
 		else 
-			users.put(id, user);
-		return "success";
+//			users.put(id, user);
+			return userService.updateUser(id, user);
+//		return "success";
 	}
 	
 	@RequestMapping(value="/{id}",method=RequestMethod.DELETE)
-	public String deleteUser(@PathVariable long id){
-		users.remove(id);
-		return "success";
+	public String deleteUser(@PathVariable int id) throws Exception{
+//		users.remove(id);
+		return userService.deleteUser(id);
+//		return "success";
 	}
 }
