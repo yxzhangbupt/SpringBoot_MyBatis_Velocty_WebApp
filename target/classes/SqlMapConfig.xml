@@ -25,5 +25,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 		<!-- <mapper resource="sqlmap/UserMapper.xml"/> -->
 		<package name="com.qiyi.video.mapper"/>
+		<package name="com.meituan.demo.dao.mapper"/>
 	</mappers>
 </configuration>
